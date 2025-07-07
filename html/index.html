@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Management System</title>
+
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body id="body" class="light-theme">
+  <div class="container mt-5">
+
+    <!-- Header and Toggle -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="fw-bold">📚 Book Management System</h1>
+      <div class="d-flex align-items-center gap-2">
+        <!-- Search Button -->
+        <a href="search.html" class="btn btn-primary">🔍 Search Books</a>
+        <!-- Theme Toggle -->
+        <button id="themeToggle"
+                class="theme-toggle-button"
+                onclick="toggleTheme()"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                title="Switch to Dark Mode">
+          <i id="themeIcon" class="bi bi-moon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Book Form -->
+    <form id="bookForm" class="border p-4 rounded shadow-sm">
+      <div class="mb-3">
+        <label for="bookId" class="form-label">Book ID (for Update)</label>
+        <input type="number" id="bookId" class="form-control" placeholder="Only used for update" />
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" id="title" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input type="text" id="author" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="year" class="form-label">Publication Year</label>
+        <input type="number" id="year" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <input type="text" id="genre" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="available" class="form-label">Available</label>
+        <select id="available" class="form-select" required>
+          <option value="">-- Select --</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button type="button" class="btn btn-success" onclick="saveBook()">➕ Save Book</button>
+        <button type="button" class="btn btn-warning" onclick="updateBook()">🔄 Update Book</button>
+      </div>
+    </form>
+
+    <hr class="my-5" />
+
+    <!-- Book List Header + Optional Search Page Button -->
+    <div class="text-end mb-3">
+      <a href="search.html" class="btn btn-outline-primary">🔍 Go to Search Page</a>
+    </div>
+
+    <h2 class="text-center">📖 All Books</h2>
+    <div id="bookList" class="row mt-4"></div>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="../js/app.js"></script>
+</body>
+</html>
